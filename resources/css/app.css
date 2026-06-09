@@ -1,0 +1,181 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-ystore-bg: #AAFFC7;
+    --color-ystore-primary: #67C090;
+    --color-ystore-secondary: #215B63;
+    --color-ystore-accent: #124170;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer utilities {
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
+    }
+    .animate-slide-up {
+        animation: slideUp 0.5s ease-out forwards;
+    }
+    .animate-slide-down {
+        animation: slideDown 0.5s ease-out forwards;
+    }
+    .animate-slide-left {
+        animation: slideLeft 0.5s ease-out forwards;
+    }
+    .animate-slide-right {
+        animation: slideRight 0.5s ease-out forwards;
+    }
+    .animate-scale-in {
+        animation: scaleIn 0.35s ease-out forwards;
+    }
+    .animate-zoom-in {
+        animation: zoomIn 0.4s ease-out forwards;
+    }
+    .animate-count-up {
+        animation: countUp 0.6s ease-out forwards;
+    }
+
+    .anim-delay-100 { animation-delay: 0.1s; }
+    .anim-delay-150 { animation-delay: 0.15s; }
+    .anim-delay-200 { animation-delay: 0.2s; }
+    .anim-delay-300 { animation-delay: 0.3s; }
+    .anim-delay-400 { animation-delay: 0.4s; }
+    .anim-delay-500 { animation-delay: 0.5s; }
+    .anim-delay-700 { animation-delay: 0.7s; }
+
+    .anim-duration-700 { animation-duration: 0.7s; }
+    .anim-duration-1000 { animation-duration: 1s; }
+
+    .stagger-children > * {
+        opacity: 0;
+    }
+    .stagger-children.animating > *:nth-child(1) { animation: slideUp 0.5s ease-out 0.05s forwards; }
+    .stagger-children.animating > *:nth-child(2) { animation: slideUp 0.5s ease-out 0.1s forwards; }
+    .stagger-children.animating > *:nth-child(3) { animation: slideUp 0.5s ease-out 0.15s forwards; }
+    .stagger-children.animating > *:nth-child(4) { animation: slideUp 0.5s ease-out 0.2s forwards; }
+    .stagger-children.animating > *:nth-child(5) { animation: slideUp 0.5s ease-out 0.25s forwards; }
+    .stagger-children.animating > *:nth-child(6) { animation: slideUp 0.5s ease-out 0.3s forwards; }
+    .stagger-children.animating > *:nth-child(7) { animation: slideUp 0.5s ease-out 0.35s forwards; }
+    .stagger-children.animating > *:nth-child(8) { animation: slideUp 0.5s ease-out 0.4s forwards; }
+    .stagger-children.animating > *:nth-child(9) { animation: slideUp 0.5s ease-out 0.45s forwards; }
+    .stagger-children.animating > *:nth-child(10) { animation: slideUp 0.5s ease-out 0.5s forwards; }
+    .stagger-children.animating > *:nth-child(11) { animation: slideUp 0.5s ease-out 0.55s forwards; }
+    .stagger-children.animating > *:nth-child(12) { animation: slideUp 0.5s ease-out 0.6s forwards; }
+    .stagger-children.animating > *:nth-child(13) { animation: slideUp 0.5s ease-out 0.65s forwards; }
+    .stagger-children.animating > *:nth-child(14) { animation: slideUp 0.5s ease-out 0.7s forwards; }
+    .stagger-children.animating > *:nth-child(15) { animation: slideUp 0.5s ease-out 0.75s forwards; }
+    .stagger-children.animating > *:nth-child(16) { animation: slideUp 0.5s ease-out 0.8s forwards; }
+    .stagger-children.animating > *:nth-child(17) { animation: slideUp 0.5s ease-out 0.85s forwards; }
+    .stagger-children.animating > *:nth-child(18) { animation: slideUp 0.5s ease-out 0.9s forwards; }
+    .stagger-children.animating > *:nth-child(19) { animation: slideUp 0.5s ease-out 0.95s forwards; }
+    .stagger-children.animating > *:nth-child(20) { animation: slideUp 0.5s ease-out 1s forwards; }
+
+    .stagger-rows.animating tbody tr {
+        opacity: 0;
+    }
+    .stagger-rows.animating tbody tr:nth-child(1) { animation: slideLeft 0.4s ease-out 0.03s forwards; }
+    .stagger-rows.animating tbody tr:nth-child(2) { animation: slideLeft 0.4s ease-out 0.06s forwards; }
+    .stagger-rows.animating tbody tr:nth-child(3) { animation: slideLeft 0.4s ease-out 0.09s forwards; }
+    .stagger-rows.animating tbody tr:nth-child(4) { animation: slideLeft 0.4s ease-out 0.12s forwards; }
+    .stagger-rows.animating tbody tr:nth-child(5) { animation: slideLeft 0.4s ease-out 0.15s forwards; }
+    .stagger-rows.animating tbody tr:nth-child(6) { animation: slideLeft 0.4s ease-out 0.18s forwards; }
+    .stagger-rows.animating tbody tr:nth-child(7) { animation: slideLeft 0.4s ease-out 0.21s forwards; }
+    .stagger-rows.animating tbody tr:nth-child(8) { animation: slideLeft 0.4s ease-out 0.24s forwards; }
+    .stagger-rows.animating tbody tr:nth-child(9) { animation: slideLeft 0.4s ease-out 0.27s forwards; }
+    .stagger-rows.animating tbody tr:nth-child(10) { animation: slideLeft 0.4s ease-out 0.3s forwards; }
+
+    .progress-bar-animate {
+        animation: progressGrow 1s ease-out forwards;
+        transform-origin: left;
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .reveal-left {
+        opacity: 0;
+        transform: translateX(-30px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .reveal-left.revealed {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .reveal-right {
+        opacity: 0;
+        transform: translateX(30px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .reveal-right.revealed {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .reveal-scale {
+        opacity: 0;
+        transform: scale(0.92);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .reveal-scale.revealed {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes progressGrow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
